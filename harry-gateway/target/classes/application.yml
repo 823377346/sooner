@@ -1,0 +1,46 @@
+server:
+  port: 10010
+  ssl:
+    key-store: classpath:wangsen56.jks
+    key-store-password: test_1024
+    key-store-type: JKS
+#    key-alias: wangsen
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+#    active: prod
+  servlet:
+      multipart:
+        max-file-size: 500MB # 限制文件上传的大小
+
+zuul:
+  prefix: /api # 添加路由前缀
+  retryable: true
+  routes:
+#    personnel-service:
+#    upload-service:
+#      path: /upload/**
+#      sensitiveHeaders: "*"
+    weather:
+      path: /weather/**
+      serviceId: weather
+      sensitiveHeaders: "*"
+    task:
+      path: /task/**
+      serviceId: task
+      sensitiveHeaders: "*"
+    hoilday:
+      path: /hoilday/**
+      serviceId: hoilday
+      sensitiveHeaders: "*"
+
+    reptile:
+      path: /reptile/**
+      serviceId: reptile
+      sensitiveHeaders: "*"
+
+
+
+

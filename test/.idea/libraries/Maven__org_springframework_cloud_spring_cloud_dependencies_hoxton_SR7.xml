@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.cloud:spring-cloud-dependencies:hoxton.SR7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-dependencies/hoxton.SR7/spring-cloud-dependencies-hoxton.SR7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-dependencies/hoxton.SR7/spring-cloud-dependencies-hoxton.SR7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-dependencies/hoxton.SR7/spring-cloud-dependencies-hoxton.SR7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

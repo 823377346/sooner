@@ -1,0 +1,14 @@
+remote:
+  maxTotalConnect: 10 #连接池的最大连接数默认为0
+  maxConnectPerRoute: 200 #单个主机的最大连接数
+  connectTimeout: 10000 # 连接超时默认2s
+  readTimeout: 30000 #读取超时默认30s
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  cache:
+    #   type: REDIS
+    redis:
+      # 全局过期时间
+      time-to-live: 120

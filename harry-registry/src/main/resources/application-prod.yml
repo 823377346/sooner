@@ -1,0 +1,31 @@
+eureka:
+  # 是否禁用增量获取服务实例注册信息
+#  disableDelta: false
+  client:
+#    healthcheck:
+#      enabled: true
+    # 从 Eureka-Server 拉取注册服务实例信息频率，默认：30 秒
+#    registryFetchIntervalSeconds: 20
+#    refresh:
+#      enable: false
+    fetchRegistry: false
+    registerWithEureka: false
+    service-url:
+      defaultZone: http://42.194.215.243:${server.port}/eureka/
+
+  server:
+    #关闭自我保护
+    enable-self-preservation: false
+    # Eureka Server端服务实例租约过期定时任务执行频率
+    eviction-interval-timer-in-ms: 20000
+    peer-node-connect-timeout-ms: 30000
+    peer-node-read-timeout-ms: 60000
+  instance:
+    prefer-ip-address: true
+    #    #  eureka server多久没有收到心跳，则表示对应的实例过期，单位：秒。
+    lease-expiration-duration-in-seconds: 90
+    #    # 心跳，租约续约频率，单位：秒
+    lease-renewal-interval-in-seconds: 5
+
+
+

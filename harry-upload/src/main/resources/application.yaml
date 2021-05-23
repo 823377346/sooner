@@ -1,0 +1,59 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: upload-service
+  servlet:
+    multipart:
+      max-file-size: 5000MB # 限制文件上传的大小
+  datasource:
+    url: jdbc:mysql://14.152.78.30:3306/sooner_wei?useUnicode=true&amp;characterEncoding=utf-8
+    #url: jdbc:mysql://127.0.0.1:3306/sooner_wei?useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: password
+    hikari:
+      maximum-pool-size: 15 #连接池最大连接数默认10
+      minimum-idle: 5 #最小连接数
+      auto-commit: true #控制从池返回的链接的默认自动提交行为
+      idle-timeout: 30000 #数据库链接超时默认30
+      max-lifetime: 1800000 #控制池中链接的最大生命周期 0无限 默认1800000
+      connection-timeout: 180000 #空闲链接存活最大时间，默认600000
+      connection-test-query: SELECT 1
+    jackson:
+      default-property-inclusion: non_null
+# Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+
+ribbon:
+  ConnectTimeout: 4000 # 连接超时时间(ms)
+  ReadTimeout: 7000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 3 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 3 # 同一实例的重试次数
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 5000 # 熔断超时时长：10000ms
+#打印日志
+logging:
+  config: classpath:logback-spring.xml
+#fdfs:
+#  so-timeout: 1501 # 超时时间
+#  connect-timeout: 601 # 连接超时时间
+#  thumb-image: # 缩略图
+#    width: 60
+#    height: 60
+#  tracker-list: # tracker地址
+#    - 192.168.56.103:22122
